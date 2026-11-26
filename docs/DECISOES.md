@@ -27,7 +27,7 @@ Quando o Elmer e o Grão a Grão adotarem a base, mudam para estas regras (ver "
 | Corpo máximo dos pedidos | 4–6 KB | 64 KB | **16 KB** por defeito, cada rota pode subir |
 | Expiração das sessões | 30 dias; 7 admins/superadmin | 30; 7 superadmin | **30 dias; 7 para admin e superadmin** |
 | Atualização da "última vez" da sessão | 1 vez por hora | 1 vez a cada 5 min | **5 minutos** |
-| Registo de segurança | últimos 300 eventos | sem limite | **180 dias** |
+| Registo de segurança | últimos 300 eventos | sem limite | **90 dias** |
 | Corpo de email/remetente | "Elmer" fixo | — | **TITULO da app** (`servidor/app.env`) |
 
 ## Migração (quando chegar a hora de cada app)
@@ -46,13 +46,14 @@ Quando o Elmer e o Grão a Grão adotarem a base, mudam para estas regras (ver "
   configurado, entra-se com palavra-passe; quando for configurado, passa a código por email.
 - **QR code** no ecrã de ligar a app de autenticação: sim (v1.1.0, `web/qr.js`, sem dependências).
 - **Cópias fora do servidor:** fica como ideia ([IDEIAS.md](IDEIAS.md)).
+- **Cifra no Grão a Grão:** só as **fotos das faturas** (com `cifrar()`); os números na base de dados não.
+  A chave fica em `~/grao-a-grao/segredos.env` e uma cópia no gestor de palavras-passe do dono.
+- **Identificadores das contas do Grão a Grão:** o primeiro nome em minúsculas, sem acentos (ex.: `gabriel`).
+- **Migração do Elmer:** depois do Grão a Grão. A forma (sessões passam ou toda a gente volta a entrar) decide-se nessa altura.
+- **Limite de memória** de 384 MB por contentor: aprovado.
+- **Registo de segurança:** 90 dias (v1.1.1).
 
 ## Por decidir
 
-1. **Cifra no Grão a Grão.** O quê (só as fotos das faturas? também campos da base de dados?) e se a chave fica no
-   servidor (`segredos.env`; protege as cópias e o disco roubado, não o servidor ligado) ou noutro sítio.
-2. **Identificadores curtos das contas do Grão a Grão** (hoje entra-se pelo nome com acentos).
-3. **Migração do Elmer:** quando, e se as sessões passam (ninguém volta a entrar) ou terminam (toda a gente entra de novo).
-4. **Limite de memória** de 384 MB por contentor: chega para todas as apps?
-5. **Painel do servidor:** como lê as versões (`docker exec <app> npx base-apps versao --json` de cada app, ou o painel lê os `package.json` e pergunta ao GitHub).
-6. **Registo de segurança:** guardar 180 dias (com IPs e emails) está bem?
+1. **Painel do servidor:** como lê as versões (`docker exec <app> npx base-apps versao --json` de cada app, ou o
+   painel lê os `package.json` e pergunta ao GitHub). Decide-se quando se fizer o painel.

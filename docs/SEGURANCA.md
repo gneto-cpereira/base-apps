@@ -75,4 +75,4 @@ nunca para o git nem para as cópias. Quem ler o disco ou uma cópia não lê os
 
 - Quem controla o email de alguém entra como essa pessoa (por isso o superadmin tem também a app de autenticação).
 - As cópias estão no mesmo disco: protegem de erros, não de uma avaria do disco.
-- O registo de segurança guarda IPs e emails (180 dias): é necessário para ver ataques.
+- O registo de segurança guarda IPs e emails (90 dias): é necessário para ver ataques.

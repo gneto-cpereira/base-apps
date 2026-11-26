@@ -21,7 +21,7 @@ Node 24, **sem dependências** (só `node:http`, `node:crypto`, `node:sqlite`, `
 ## App nova
 
 ```
-npx github:gneto-cpereira/base-apps#v1.1.0 nova-app a-minha-app --titulo "A Minha App" --porta 8092
+npx github:gneto-cpereira/base-apps#v1.1.1 nova-app a-minha-app --titulo "A Minha App" --porta 8092
 cd a-minha-app
 git init -b main && git config user.email 253965595+gneto-cpereira@users.noreply.github.com
 npm install
@@ -39,7 +39,7 @@ e `test/`. Ver [docs/NORMAS.md](docs/NORMAS.md).
 ## Usar numa app
 
 ```json
-"dependencies": { "base-apps": "github:gneto-cpereira/base-apps#v1.1.0" }
+"dependencies": { "base-apps": "github:gneto-cpereira/base-apps#v1.1.1" }
 ```
 
 ```js

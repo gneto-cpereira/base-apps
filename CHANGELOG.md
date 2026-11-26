@@ -3,6 +3,12 @@
 Semver: **patch** corrige sem mexer nas apps; **minor** acrescenta, compatível; **major** obriga a mexer nas apps
 (cada secção major diz o quê). A mais recente no topo.
 
+## [1.1.1] - 2026-11-26
+
+- O registo de segurança guarda 90 dias (antes 180).
+- Decisões registadas em `docs/DECISOES.md`: cifra só das fotos no Grão a Grão, identificadores curtos,
+  migração do Elmer depois do Grão a Grão, limite de memória aprovado.
+
 ## [1.1.0] - 2026-11-26
 
 - **QR code** no ecrã de ligar a app de autenticação (`/base/qr.js`, sem dependências; classe `ba-qr`).
