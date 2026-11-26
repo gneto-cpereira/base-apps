@@ -3,6 +3,14 @@
 Semver: **patch** corrige sem mexer nas apps; **minor** acrescenta, compatível; **major** obriga a mexer nas apps
 (cada secção major diz o quê). A mais recente no topo.
 
+## [1.2.1] - 2026-11-26
+
+- Os códigos de recuperação antigos do Elmer (minúsculas, guardados como hash das minúsculas) continuam a servir
+  depois da migração para a base, escritos em maiúsculas ou minúsculas, com ou sem hífen.
+- `copiarBd` (e por isso `copiar-dados`, as cópias diárias e os dados do dev) deixa as cópias com `chmod 600`.
+- `arranque.sh`: `NPM_CONFIG_UPDATE_NOTIFIER=false` (sem o aviso de versão nova do npm a cada arranque).
+  Nas apps: `npx base-apps infra --atualizar`.
+
 ## [1.2.0] - 2026-11-26
 
 - Ecrãs de entrada com a personalidade de cada app (sem mudar o funcionamento): `mostrarEntrada` e

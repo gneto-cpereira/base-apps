@@ -36,6 +36,7 @@ Quando o Elmer e o Grão a Grão adotarem a base, mudam para estas regras (ver "
   `salHex = hex(utf8(sal))` e `N = n`, e os hashes continuam a servir). Os `nome` atuais passam a `id` e a `nome`.
   `email.json` passa para a tabela `definicoes`. Pasta `estado/` → `dados/`, `chave/elmer_deploy` → `chave/deploy`.
   As sessões podem ser migradas (hash igual) ou simplesmente terminar (toda a gente volta a entrar).
+  Os códigos de recuperação antigos (minúsculas) passam tal e qual: a base aceita-os desde a v1.2.1.
 - **Grão a Grão**: muda para Node (passo seguinte). Os hashes `scrypt$…` servem tal e qual, salvo palavras-passe
   com acentos escritas de forma decomposta (raro). `pessoa` → `user`; o `nome` atual passa a `nome`, e cria-se
   um `id` curto para cada conta.

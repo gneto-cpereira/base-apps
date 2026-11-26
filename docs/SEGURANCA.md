@@ -25,6 +25,7 @@ O método escolhe-se sozinho, conforme o Gmail da app está ou não configurado 
   - Obrigatório para o superadmin: até o ligar, só consegue ligá-lo ou sair. Opcional para os outros.
   - Um código usado não volta a servir (nem dentro dos mesmos 30 s).
   - 8 códigos de recuperação de uso único (10 letras sem caracteres confundíveis), guardados só como hash.
+    Os códigos antigos do Elmer (10 letras e números em minúsculas, de antes da base) continuam a servir até serem usados.
   - Ao ligá-lo, terminam as outras sessões dessa pessoa.
 
 ## Tentativas falhadas

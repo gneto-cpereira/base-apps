@@ -1,6 +1,6 @@
 {
   "name": "base-apps",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Base comum das apps do gneto-server: entrada e segurança, servidor, infraestrutura (contentores main/dev, cópias), normas e modelo de app nova.",
   "type": "module",
   "license": "UNLICENSED",

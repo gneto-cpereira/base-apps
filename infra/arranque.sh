@@ -6,6 +6,8 @@
 # 3. serve a app (node servidor.mjs) e vai buscar novidades ao GitHub a cada 5 minutos;
 #    quando as há, reinicia o contentor (kill 1) para carregar o código novo: o Docker volta a ligá-lo.
 cd /repo || exit 1
+# Sem o aviso de versão nova do npm (ia ao registo a cada arranque e enchia o registo do contentor)
+export NPM_CONFIG_UPDATE_NOTIFIER=false
 . ./servidor/app.env
 git config --global --add safe.directory /repo
 # As dependências do GitHub (base-apps) vêm por https, sem chaves; o git pull da app usa a chave de leitura.

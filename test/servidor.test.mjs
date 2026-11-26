@@ -2,6 +2,7 @@ import { test, before, after, beforeEach } from 'node:test';
 import assert from 'node:assert/strict';
 import { novaApp, cliente } from './ajuda.mjs';
 import { codigoTotp, passoAtual } from '../lib/totp.mjs';
+import { hashToken } from '../lib/cripto.mjs';
 
 let A, base;
 before(async () => { ({ app: A, base } = await novaApp()); });
@@ -80,6 +81,14 @@ test('palavra-passe, segundo passo obrigatório do superadmin e códigos de recu
   r = await c.post('/api/conta/totp', { desafio: r.dados.desafio, codigo: recuperacao[0].toLowerCase() });
   assert.equal(r.estado, 200);
   assert.equal(r.dados.passo, 'feito');
+  assert.equal(A.contas.recuperacaoRestante('ana'), 7);
+
+  // códigos de recuperação antigos do Elmer (hash das minúsculas) continuam a servir, escritos como for
+  A.bd.prepare('INSERT INTO recuperacao (conta, hash) VALUES (?, ?)').run('ana', hashToken('ab3cd0ef1g'));
+  await c.post('/api/conta/sair');
+  r = await c.post('/api/conta/entrar', { nome: 'ana', senha: 'cavalo bateria agrafo correto' });
+  r = await c.post('/api/conta/totp', { desafio: r.dados.desafio, codigo: 'AB3CD-0EF1G' });
+  assert.equal(r.estado, 200);
   assert.equal(A.contas.recuperacaoRestante('ana'), 7);
 
   // sessões: listar e terminar as outras
