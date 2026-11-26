@@ -23,6 +23,18 @@ O servidor da base serve estes ficheiros em `/base/…` (a CSP aceita-os porque 
 
 O topo de cada ecrã (logótipo, nome) é HTML da app: `marca` em `mostrarEntrada` e `ligarDoisPassos`.
 
+## Personalidade da app nos ecrãs de entrada (v1.2.0)
+
+`mostrarEntrada(el, opcoes)` e `ligarDoisPassos(el, opcoes)` aceitam:
+
+| Opção | Para quê |
+|---|---|
+| `marca` | HTML do topo, ou função `(passo) => HTML`. Passos: `email`, `codigo`, `senha`, `definir-senha`, `totp`, `dois-passos`, `recuperacao` |
+| `aoDesenhar(el, passo)` | chamada depois de cada ecrã ser desenhado (ex.: desenhar a mascote em SVG) |
+| `reagir(estado)` | `'a-enviar'`, `'erro'` ou `'entrou'` (ex.: a mascote pensa, fica preocupada, festeja) |
+
+Exemplo (Grão a Grão): a galinha muda de reação com `reagir`, e `aoDesenhar` volta a pintá-la.
+
 ## Classes (contrato estável: só mudam numa versão major)
 
 | Classe | Onde |

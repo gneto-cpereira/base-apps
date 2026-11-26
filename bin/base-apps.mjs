@@ -38,7 +38,7 @@ Criar e manter apps:
 
 Contas (na pasta da app; no servidor dentro do contentor):
   listar                       contas e como se entra
-  superadmin <id> [email]      cria ou promove o superadmin
+  superadmin <id> [email] [--nome "Nome"]  cria ou promove o superadmin
   codigo-senha <id>            código (30 min) para a pessoa escolher a palavra-passe
   email                        configura o Gmail que envia os códigos (ver docs/EMAIL.md)
   testar-email <destino>       envia um email de teste
@@ -182,10 +182,11 @@ Porta ${porta}: confirma em docs/NORMAS.md (base-apps) que não está ocupada po
   case 'superadmin': {
     const { contas, email, registar } = abrirApp();
     const id = idDe(posicionais[0]), e = posicionais[1] ? normalizarEmail(posicionais[1]) : null;
-    if (!id) sair('Uso: superadmin <id> [email]');
+    if (!id) sair('Uso: superadmin <id> [email] [--nome "Nome"]');
     if (e && !emailValido(e)) sair('Email inválido.');
     if (email.configurado() && !e && !contas.obter(id)?.email) sair('A entrada é por email: indica também o email (superadmin <id> <email>).');
-    tentar(() => (contas.obter(id) ? contas.alterar(id, { papel: 'superadmin', ...(e ? { email: e } : {}) }) : contas.criar({ id, email: e, papel: 'superadmin' })));
+    const nome = opcao('nome');
+    tentar(() => (contas.obter(id) ? contas.alterar(id, { papel: 'superadmin', ...(e ? { email: e } : {}), ...(nome ? { nome } : {}) }) : contas.criar({ id, nome, email: e, papel: 'superadmin' })));
     registar('cli-superadmin', { conta: id });
     console.log(`Superadmin "${id}" guardado.`);
     if (!email.configurado() && !contas.obter(id).senha) {

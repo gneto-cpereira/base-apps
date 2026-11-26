@@ -3,6 +3,14 @@
 Semver: **patch** corrige sem mexer nas apps; **minor** acrescenta, compatível; **major** obriga a mexer nas apps
 (cada secção major diz o quê). A mais recente no topo.
 
+## [1.2.0] - 2026-11-26
+
+- Ecrãs de entrada com a personalidade de cada app (sem mudar o funcionamento): `mostrarEntrada` e
+  `ligarDoisPassos` aceitam `marca` como função do passo, `aoDesenhar(el, passo)` e `reagir(estado)`
+  (`'a-enviar' | 'erro' | 'entrou'`). Primeiro uso: a galinha do Grão a Grão reage na entrada.
+- O ecrã dos códigos de recuperação mostra a marca da app quando é o fim da entrada obrigatória.
+- `npx base-apps superadmin <id> [email] --nome "Nome"`: nome para mostrar.
+
 ## [1.1.1] - 2026-11-26
 
 - O registo de segurança guarda 90 dias (antes 180).
