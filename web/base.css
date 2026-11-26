@@ -1,0 +1,68 @@
+/* Aspeto neutro e OPCIONAL dos ecrãs da base (entrada, conta, administração). Cada app tem o seu estilo:
+   pode carregar este ficheiro e só mudar as variáveis abaixo, ou não o carregar e estilizar as classes ba-*
+   à sua maneira (lista em docs/WEB.md). O funcionamento é o mesmo em qualquer caso. */
+:root {
+  --ba-fundo: #fff;
+  --ba-texto: #1d1d1f;
+  --ba-suave: #6b6b70;
+  --ba-linha: #e3e3e6;
+  --ba-cartao: #f6f6f8;
+  --ba-cor: #2f6f4f;          /* cor principal da app */
+  --ba-cor-texto: #fff;
+  --ba-erro: #b3261e;
+  --ba-ok: #2f6f4f;
+  --ba-raio: 12px;
+  --ba-letra: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --ba-fundo: #151517; --ba-texto: #f2f2f4; --ba-suave: #a0a0a8; --ba-linha: #333338; --ba-cartao: #1f1f23; }
+}
+
+[hidden] { display: none !important; }
+.ba-entrada, .ba-dois-passos, .ba-conta, .ba-utilizadores, .ba-ficha, .ba-registo {
+  font-family: var(--ba-letra); color: var(--ba-texto);
+  max-width: 26rem; margin: 2rem auto; padding: 0 1rem; display: flex; flex-direction: column; gap: .9rem;
+}
+.ba-conta, .ba-utilizadores, .ba-ficha, .ba-registo { max-width: 40rem; }
+.ba-marca { text-align: center; }
+.ba-titulo { margin: 0; font-size: 1.15rem; }
+.ba-texto { margin: 0; line-height: 1.45; }
+.ba-nota { display: block; color: var(--ba-suave); font-size: .875rem; margin: .15rem 0 0; }
+.ba-campo { display: flex; flex-direction: column; gap: .3rem; font-size: .9rem; font-weight: 600; }
+.ba-campo input, .ba-campo select, .ba-codigo {
+  font: inherit; font-weight: 400; padding: .7rem .8rem; border: 1px solid var(--ba-linha); border-radius: var(--ba-raio);
+  background: var(--ba-fundo); color: var(--ba-texto);
+}
+.ba-codigo { letter-spacing: .2em; font-variant-numeric: tabular-nums; font-size: 1.2rem; }
+.ba-botao {
+  font: inherit; font-weight: 600; padding: .7rem 1rem; border-radius: var(--ba-raio); cursor: pointer; text-align: center;
+  border: 1px solid var(--ba-linha); background: var(--ba-cartao); color: var(--ba-texto); text-decoration: none; display: inline-block;
+}
+.ba-principal { background: var(--ba-cor); border-color: var(--ba-cor); color: var(--ba-cor-texto); }
+.ba-perigo { color: var(--ba-erro); }
+.ba-pequeno { padding: .35rem .6rem; font-size: .85rem; }
+.ba-botao:disabled { opacity: .55; cursor: default; }
+.ba-a-carregar { opacity: .7; cursor: progress; }
+.ba-ligacoes, .ba-acoes { display: flex; flex-wrap: wrap; gap: .5rem 1rem; justify-content: center; }
+.ba-ligacao { font: inherit; background: none; border: 0; color: var(--ba-cor); cursor: pointer; padding: .3rem; text-decoration: underline; }
+.ba-ligacao:disabled { color: var(--ba-suave); text-decoration: none; }
+.ba-erro { color: var(--ba-erro); margin: 0; }
+.ba-ok { color: var(--ba-ok); margin: 0; }
+.ba-cartao { background: var(--ba-cartao); border-radius: var(--ba-raio); padding: 1rem; display: flex; flex-direction: column; gap: .6rem; }
+.ba-formulario { display: flex; flex-direction: column; gap: .7rem; }
+.ba-linha-form { display: flex; gap: .5rem; flex-wrap: wrap; }
+.ba-lista { display: flex; flex-direction: column; gap: .4rem; }
+.ba-linha {
+  display: flex; justify-content: space-between; align-items: center; gap: .6rem; text-align: left;
+  font: inherit; color: inherit; background: var(--ba-fundo); border: 1px solid var(--ba-linha); border-radius: var(--ba-raio); padding: .6rem .8rem;
+}
+button.ba-linha { cursor: pointer; width: 100%; }
+.ba-etiqueta { font-size: .75rem; padding: .1rem .45rem; border-radius: 99px; background: var(--ba-linha); white-space: nowrap; }
+.ba-dev { background: #c2410c; color: #fff; font-weight: 700; }
+.ba-passos { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 1rem; }
+.ba-passos li { display: flex; flex-direction: column; gap: .4rem; }
+.ba-chave { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.ba-chave code, .ba-codigo-dado code { font-size: 1.05rem; letter-spacing: .08em; user-select: all; }
+.ba-recuperacao { background: var(--ba-cartao); padding: 1rem; border-radius: var(--ba-raio); font-size: 1.05rem; line-height: 1.6; user-select: all; margin: 0; }
+.ba-confirmar, .ba-interruptor { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }
+.ba-desligado { opacity: .6; }

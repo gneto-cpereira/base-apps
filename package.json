@@ -1,0 +1,19 @@
+{
+  "name": "base-apps",
+  "version": "1.0.0",
+  "description": "Base comum das apps do gneto-server: entrada e segurança, servidor, infraestrutura (contentores main/dev, cópias), normas e modelo de app nova.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "private": true,
+  "repository": { "type": "git", "url": "git+https://github.com/gneto-cpereira/base-apps.git" },
+  "engines": { "node": ">=24" },
+  "exports": {
+    ".": "./lib/index.mjs",
+    "./package.json": "./package.json"
+  },
+  "bin": { "base-apps": "bin/base-apps.mjs" },
+  "files": ["lib", "web", "bin", "infra", "modelos", "docs", "CHANGELOG.md", "README.md"],
+  "scripts": {
+    "test": "node --test \"test/*.test.mjs\""
+  }
+}

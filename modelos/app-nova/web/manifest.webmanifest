@@ -1,0 +1,10 @@
+{
+  "name": "{{TITULO}}",
+  "short_name": "{{TITULO}}",
+  "start_url": "/",
+  "display": "standalone",
+  "lang": "pt-PT",
+  "background_color": "#ffffff",
+  "theme_color": "#3b5bdb",
+  "icons": [{ "src": "icone.svg", "sizes": "any", "type": "image/svg+xml" }]
+}

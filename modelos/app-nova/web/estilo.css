@@ -1,0 +1,11 @@
+/* Aspeto de {{TITULO}}. Os ecrãs da base (entrada, conta, contas) usam as classes ba-* (ver docs/WEB.md da
+   base-apps): muda aqui as variáveis --ba-* ou estiliza as classes à maneira desta app. */
+:root { --ba-cor: #3b5bdb; }
+[hidden] { display: none !important; }
+body { margin: 0; font-family: var(--ba-letra); background: var(--ba-fundo); color: var(--ba-texto); }
+.topo { display: flex; gap: 1rem; align-items: center; justify-content: space-between; flex-wrap: wrap; padding: .6rem 1rem; border-bottom: 1px solid var(--ba-linha); }
+.topo nav { display: flex; gap: .4rem; }
+.topo button { font: inherit; background: none; border: 0; color: var(--ba-cor); cursor: pointer; padding: .3rem .5rem; }
+.pagina { max-width: 40rem; margin: 1.5rem auto; padding: 0 1rem; }
+#nova { display: flex; gap: .5rem; }
+#nova input { flex: 1; font: inherit; padding: .6rem; border: 1px solid var(--ba-linha); border-radius: var(--ba-raio); }

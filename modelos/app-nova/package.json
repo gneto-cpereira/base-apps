@@ -1,0 +1,14 @@
+{
+  "name": "{{NOME}}",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "start": "node servidor.mjs",
+    "test": "node --test \"test/*.test.mjs\""
+  },
+  "dependencies": {
+    "base-apps": "github:gneto-cpereira/base-apps#v{{VERSAO_BASE}}"
+  }
+}

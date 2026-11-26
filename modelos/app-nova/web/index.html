@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{TITULO}}</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icone.svg" type="image/svg+xml">
+  <!-- base.css é opcional: dá um aspeto neutro aos ecrãs da base; estilo.css é o aspeto desta app -->
+  <link rel="stylesheet" href="/base/base.css">
+  <link rel="stylesheet" href="estilo.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topo" hidden>
+    <strong>{{TITULO}}</strong>
+    <nav>
+      <button type="button" data-ir="inicio">Início</button>
+      <button type="button" data-ir="conta">Conta</button>
+      <button type="button" data-ir="contas" data-so="superadmin" hidden>Contas</button>
+      <button type="button" data-ir="registo" data-so="superadmin" hidden>Registo</button>
+    </nav>
+    <span id="interruptor-dev"></span>
+  </header>
+  <main id="vista"></main>
+</body>
+</html>

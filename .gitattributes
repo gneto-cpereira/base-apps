@@ -1,0 +1,5 @@
+# Os scripts correm no servidor (Linux): têm de ter fins de linha LF, mesmo vindos do Windows.
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.webp binary

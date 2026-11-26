@@ -1,0 +1,55 @@
+# {{TITULO}} no gneto-server. Ver servidor/LEIA-ME.md.
+# Projeto Docker com nome próprio: sem ele, o Docker chamava-lhe "servidor" (o nome da pasta), igual ao das
+# outras apps, e um "docker compose down --remove-orphans" numa apagava os contentores das outras.
+name: {{NOME}}
+
+x-comum: &comum
+  image: {{NOME}}
+  restart: unless-stopped
+  init: true
+  user: "${UID_GID:-1000:1000}"
+  working_dir: /repo
+  command: sh servidor/arranque.sh
+  mem_limit: 384m        # servidor fraco: nenhuma app pode comer a memória das outras
+  logging:
+    driver: json-file
+    options: { max-size: "5m", max-file: "2" }
+  env_file:
+    - path: ../../segredos.env   # CHAVE_CIFRA e afins: fora do repositório, chmod 600
+      required: false
+
+services:
+  # Versão normal (ramo main), a que toda a gente usa
+  {{NOME}}:
+    <<: *comum
+    build: .
+    container_name: {{NOME}}
+    environment:
+      - HOME=/tmp
+      - RAMO=main
+      - DADOS=/dados
+      - PORTA={{PORTA}}
+      - DEV_URL=http://{{NOME}}-dev:{{PORTA}} # superadmins com o interruptor dev ligado são encaminhados para aqui
+    ports:
+      - "127.0.0.1:{{PORTA}}:{{PORTA}}" # só o Tailscale (no próprio servidor) chega à app; a rede local não
+    volumes:
+      - ..:/repo
+      - ../../chave:/chave:ro # só leitura: o contentor usa a chave, mas não a pode trocar
+      - ../../dados:/dados
+
+  # Versão de testes (ramo dev): sem porta própria, só o contentor main lhe chega.
+  # Está a dormir enquanto o ramo dev não tiver novidades em relação ao main (servidor/dev-acordar.sh, no cron).
+  # Dados: DEV_DADOS={{DEV_DADOS}} (servidor/app.env). O perfil "dev" impede que "docker compose up" o arranque sem querer.
+  {{NOME}}-dev:
+    <<: *comum
+    container_name: {{NOME}}-dev
+    profiles: ["dev"]
+    environment:
+      - HOME=/tmp
+      - RAMO=dev
+      - DADOS=/dados
+      - PORTA={{PORTA}}
+    volumes:
+      - ../../repo-dev:/repo
+      - ../../chave:/chave:ro
+      - ../../{{PASTA_DADOS_DEV}}:/dados

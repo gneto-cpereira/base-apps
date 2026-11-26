@@ -1,0 +1,10 @@
+node_modules/
+# Dados locais (no servidor ficam em ~/{{NOME}}/dados, fora do repositório)
+dados/
+*.db
+*.db-wal
+*.db-shm
+segredos.env
+.env
+Thumbs.db
+.DS_Store
