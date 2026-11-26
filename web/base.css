@@ -61,7 +61,9 @@ button.ba-linha { cursor: pointer; width: 100%; }
 .ba-dev { background: #c2410c; color: #fff; font-weight: 700; }
 .ba-passos { padding-left: 1.2rem; display: flex; flex-direction: column; gap: 1rem; }
 .ba-passos li { display: flex; flex-direction: column; gap: .4rem; }
-.ba-chave { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.ba-qr { width: 12rem; max-width: 100%; }
+.ba-qr svg { display: block; width: 100%; height: auto; border-radius: 6px; }
+.ba-chave {display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
 .ba-chave code, .ba-codigo-dado code { font-size: 1.05rem; letter-spacing: .08em; user-select: all; }
 .ba-recuperacao { background: var(--ba-cartao); padding: 1rem; border-radius: var(--ba-raio); font-size: 1.05rem; line-height: 1.6; user-select: all; margin: 0; }
 .ba-confirmar, .ba-interruptor { display: flex; gap: .5rem; align-items: center; flex-wrap: wrap; }

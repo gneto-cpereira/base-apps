@@ -47,3 +47,13 @@ test('nomes, identificadores e versões', () => {
   assert.equal(compararSemver('v2.0.0', '1.9.9'), 1);
   assert.equal(compararSemver('v1.0.0', 'v1.0.0'), 0);
 });
+
+test('QR code (a leitura foi confirmada com o leitor zxing-cpp em 16 textos, versões 1 a 14)', async () => {
+  const { qrMatriz, qrSvg } = await import('../web/qr.js');
+  assert.equal(qrMatriz('a').length, 21);           // versão 1
+  const url = 'otpauth://totp/App%3Aana%40exemplo.pt?secret=JBSWY3DPEHPK3PXPJBSWY3DPEHPK3PXP&issuer=App&algorithm=SHA1&digits=6&period=30';
+  const n = qrMatriz(url).length;
+  assert.equal((n - 17) % 4, 0);
+  assert.match(qrSvg(url), /^<svg [^>]*viewBox="0 0 \d+ \d+"/);
+  assert.throws(() => qrMatriz('x'.repeat(1000)));
+});

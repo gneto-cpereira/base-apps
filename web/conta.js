@@ -43,7 +43,7 @@ export async function mostrarConta(el) {
     const caixa = $('[data-2fa] div');
     if (!eu.totp) {
       caixa.innerHTML = '<p class="ba-nota">Além do primeiro passo, pede um código de uma app do telemóvel. Protege a conta mesmo que alguém saiba o teu email ou a tua palavra-passe.</p><button class="ba-botao ba-principal" type="button" data-ligar>Ligar</button>';
-      caixa.querySelector('[data-ligar]').addEventListener('click', () => ligarDoisPassos(caixa, { depois: () => { eu.totp = true; doisPassos(); sessoes(); } }));
+      caixa.querySelector('[data-ligar]').addEventListener('click', () => ligarDoisPassos(caixa, { titulo: eu.titulo, depois: () => { eu.totp = true; doisPassos(); sessoes(); } }));
     } else if (eu.papel === 'superadmin') {
       caixa.innerHTML = '<p class="ba-nota">Ligada. O superadmin tem de a ter sempre ligada.</p>';
     } else {

@@ -11,6 +11,7 @@ O servidor da base serve estes ficheiros em `/base/…` (a CSP aceita-os porque 
 | `/base/entrada.js` | `mostrarEntrada(el, { marca, aoEntrar })`, `ligarDoisPassos(el, { obrigatorio, marca, titulo, depois })` | Ecrã de entrada completo (email/código, palavra-passe, "Tenho um código", segundo passo, ligar a app de autenticação, códigos de recuperação) |
 | `/base/conta.js` | `mostrarConta(el)` | Página da conta: as minhas sessões, dois passos, mudar palavra-passe, sair |
 | `/base/admin.js` | `mostrarUtilizadores(el)`, `mostrarRegisto(el)`, `mostrarInterruptorDev(el)` | Superadmin: gerir contas, registo de segurança, interruptor da versão de testes |
+| `/base/qr.js` | `qrSvg(texto)`, `qrMatriz(texto)` | QR code sem dependências (usado no ecrã dos dois passos) |
 | `/base/base.css` | — | **Opcional.** Aspeto neutro, mudável pelas variáveis `--ba-*` |
 
 ## Duas maneiras de dar o aspeto da app
@@ -27,7 +28,7 @@ O topo de cada ecrã (logótipo, nome) é HTML da app: `marca` em `mostrarEntrad
 | Classe | Onde |
 |---|---|
 | `ba-entrada` | formulário de cada passo da entrada |
-| `ba-dois-passos`, `ba-passos`, `ba-chave`, `ba-recuperacao`, `ba-confirmar` | ligar a app de autenticação |
+| `ba-dois-passos`, `ba-passos`, `ba-qr`, `ba-chave`, `ba-recuperacao`, `ba-confirmar` | ligar a app de autenticação |
 | `ba-conta`, `ba-utilizadores`, `ba-ficha`, `ba-registo` | páginas da conta e da administração |
 | `ba-marca`, `ba-titulo`, `ba-texto`, `ba-nota` | topo, títulos, textos, textos pequenos |
 | `ba-campo` | `<label>` com o `<input>`/`<select>` lá dentro |

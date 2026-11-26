@@ -8,6 +8,7 @@
 // (superadmin sem ela) ligar a app de autenticação → códigos de recuperação → aoEntrar.
 // "Tenho um código" (sem email configurado): escolher a palavra-passe com o código dado pelo superadmin.
 import { pedir, obter, esc } from './api.js';
+import { qrSvg } from './qr.js';
 
 export async function mostrarEntrada(el, { marca = '', aoEntrar, aviso = '' } = {}) {
   let info = { metodo: 'senha', titulo: '' };
@@ -130,7 +131,8 @@ export async function ligarDoisPassos(el, { obrigatorio = false, marca = '', tit
     ${obrigatorio ? `<div class="ba-marca">${marca}</div><h2 class="ba-titulo">Proteger a conta</h2><p class="ba-texto">Como superadmin, a tua conta precisa de um segundo passo: um código que muda a cada 30 segundos numa app do telemóvel. Só tens de fazer isto uma vez.</p>` : ''}
     <ol class="ba-passos">
       <li><b>Instala uma app de autenticação</b><span class="ba-nota">Google Authenticator, Microsoft Authenticator, Aegis (Android) ou 2FAS. Se já tens uma, usa essa.</span></li>
-      <li><b>Adiciona ${esc(titulo || 'esta app')}</b><span class="ba-nota">No telemóvel, carrega no botão. Noutro dispositivo, escolhe na app "introduzir chave" e escreve a chave.</span>
+      <li><b>Adiciona ${esc(titulo || 'esta app')}</b><span class="ba-nota">Na app de autenticação, lê este QR code com a câmara. Se estás no telemóvel, carrega no botão. Também podes escolher "introduzir chave" e escrever a chave.</span>
+        <div class="ba-qr">${qrSvg(d.url, { titulo: 'QR code para a app de autenticação' })}</div>
         <a class="ba-botao" href="${esc(d.url)}">Abrir na app de autenticação</a>
         <div class="ba-chave"><code>${grupos}</code><button class="ba-botao ba-pequeno" type="button" data-copiar>Copiar</button></div></li>
       <li><b>Escreve o código que aparece</b>

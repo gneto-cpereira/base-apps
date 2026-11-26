@@ -16,12 +16,12 @@ Node 24, **sem dependências** (só `node:http`, `node:crypto`, `node:sqlite`, `
 | **Ecrãs** | entrada, conta (sessões, dois passos, palavra-passe) e administração (contas, registo, interruptor dev), com o estilo da app |
 | **Infraestrutura** | Dockerfile, `arranque.sh` (git pull de 5 em 5 min), `dev-acordar.sh` (dev a dormir sem novidades), `copia-dados.sh` (30 dias) |
 | **Linha de comandos** | `npx base-apps nova-app`, `versao`, `infra`, contas (`superadmin`, `email`, `emergencia`…) |
-| **Normas** | [docs/NORMAS.md](docs/NORMAS.md), [docs/GIT.md](docs/GIT.md), [docs/SEGURANCA.md](docs/SEGURANCA.md), [docs/LISTA-SEGURANCA.md](docs/LISTA-SEGURANCA.md), [docs/WEB.md](docs/WEB.md), [docs/EMAIL.md](docs/EMAIL.md), [docs/DECISOES.md](docs/DECISOES.md) |
+| **Normas** | [docs/NORMAS.md](docs/NORMAS.md), [docs/GIT.md](docs/GIT.md), [docs/SEGURANCA.md](docs/SEGURANCA.md), [docs/LISTA-SEGURANCA.md](docs/LISTA-SEGURANCA.md), [docs/WEB.md](docs/WEB.md), [docs/EMAIL.md](docs/EMAIL.md), [docs/DECISOES.md](docs/DECISOES.md), [docs/IDEIAS.md](docs/IDEIAS.md) |
 
 ## App nova
 
 ```
-npx github:gneto-cpereira/base-apps#v1.0.0 nova-app a-minha-app --titulo "A Minha App" --porta 8092
+npx github:gneto-cpereira/base-apps#v1.1.0 nova-app a-minha-app --titulo "A Minha App" --porta 8092
 cd a-minha-app
 git init -b main && git config user.email 253965595+gneto-cpereira@users.noreply.github.com
 npm install
@@ -39,7 +39,7 @@ e `test/`. Ver [docs/NORMAS.md](docs/NORMAS.md).
 ## Usar numa app
 
 ```json
-"dependencies": { "base-apps": "github:gneto-cpereira/base-apps#v1.0.0" }
+"dependencies": { "base-apps": "github:gneto-cpereira/base-apps#v1.1.0" }
 ```
 
 ```js

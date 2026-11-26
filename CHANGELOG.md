@@ -3,6 +3,12 @@
 Semver: **patch** corrige sem mexer nas apps; **minor** acrescenta, compatível; **major** obriga a mexer nas apps
 (cada secção major diz o quê). A mais recente no topo.
 
+## [1.1.0] - 2026-11-26
+
+- **QR code** no ecrã de ligar a app de autenticação (`/base/qr.js`, sem dependências; classe `ba-qr`).
+- `GET /api/conta/eu` devolve também o `titulo` da app (a página da conta usa-o no ecrã dos dois passos).
+- Documentação: `docs/IDEIAS.md` (cópias fora do servidor) e decisões tomadas depois da 1.0.0.
+
 ## [1.0.0] - 2026-11-26
 
 Primeira versão, a partir do que o Elmer e o Grão a Grão já faziam (diferenças normalizadas: docs/DECISOES.md).

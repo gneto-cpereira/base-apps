@@ -40,18 +40,19 @@ Quando o Elmer e o Grão a Grão adotarem a base, mudam para estas regras (ver "
   com acentos escritas de forma decomposta (raro). `pessoa` → `user`; o `nome` atual passa a `nome`, e cria-se
   um `id` curto para cada conta.
 
+## Decidido depois da v1.0.0 (2026-11-26)
+
+- **Entrada no Grão a Grão:** ficam as duas opções (a base escolhe sozinha). Enquanto o Gmail não estiver
+  configurado, entra-se com palavra-passe; quando for configurado, passa a código por email.
+- **QR code** no ecrã de ligar a app de autenticação: sim (v1.1.0, `web/qr.js`, sem dependências).
+- **Cópias fora do servidor:** fica como ideia ([IDEIAS.md](IDEIAS.md)).
+
 ## Por decidir
 
-1. **Cópias fora do servidor.** Hoje ficam no mesmo disco (protegem de erros, não de avarias). Opção grátis:
-   `rclone` para um Google Drive/OneDrive pessoal, cifrado. Vale para todas as apps.
-2. **Cifra no Grão a Grão.** O quê (só as fotos das faturas? também campos da base de dados?) e se a chave fica no
+1. **Cifra no Grão a Grão.** O quê (só as fotos das faturas? também campos da base de dados?) e se a chave fica no
    servidor (`segredos.env`; protege as cópias e o disco roubado, não o servidor ligado) ou noutro sítio.
-3. **Grão a Grão com email?** Ao configurar o Gmail, a entrada passa sozinha a código por email. Ou fica só com
-   palavra-passe (está só no Tailscale)?
-4. **Identificadores curtos das contas do Grão a Grão** (hoje entra-se pelo nome com acentos).
-5. **Migração do Elmer:** quando, e se as sessões passam (ninguém volta a entrar) ou terminam (toda a gente entra de novo).
-6. **QR code** no ecrã de ligar a app de autenticação (hoje: botão para abrir a app + chave para escrever).
-   Gerar QR sem dependências custa ~300 linhas.
-7. **Limite de memória** de 384 MB por contentor: chega para todas as apps?
-8. **Painel do servidor:** como lê as versões (`docker exec <app> npx base-apps versao --json` de cada app, ou o painel lê os `package.json` e pergunta ao GitHub).
-9. **Registo de segurança:** guardar 180 dias (com IPs e emails) está bem?
+2. **Identificadores curtos das contas do Grão a Grão** (hoje entra-se pelo nome com acentos).
+3. **Migração do Elmer:** quando, e se as sessões passam (ninguém volta a entrar) ou terminam (toda a gente entra de novo).
+4. **Limite de memória** de 384 MB por contentor: chega para todas as apps?
+5. **Painel do servidor:** como lê as versões (`docker exec <app> npx base-apps versao --json` de cada app, ou o painel lê os `package.json` e pergunta ao GitHub).
+6. **Registo de segurança:** guardar 180 dias (com IPs e emails) está bem?
